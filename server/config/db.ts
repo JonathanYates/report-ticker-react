@@ -1,15 +1,15 @@
 import * as mongoose from 'mongoose';
 
-export interface IReportSchema {
+export interface ReportSchema {
     url: string;
     schema: mongoose.Schema;
 }
 
-export class ReportSchema implements IReportSchema {
+export class ReportSchema implements ReportSchema {
 
-    url = 'mongodb://localhost/report-ticker';
+    public url = 'mongodb://localhost/report-ticker';
     
-    schema:mongoose.Schema;
+    public schema:mongoose.Schema;
 
     constructor() {
         this.schema = new mongoose.Schema({

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const utils_1 = require("../common/utils");
 const socketIO = require("socket.io");
+const utils_1 = require("../common/utils");
 class TickerService {
     constructor(server, reportsRepository) {
         this.reportsRepository = reportsRepository;
@@ -15,7 +15,7 @@ class TickerService {
         const self = this;
         this.io.sockets.on('connection', (socket) => {
             console.log('User connected');
-            socket.on('disconnect', function () {
+            socket.on('disconnect', () => {
                 console.log('User disconnected');
             });
             if (!self.ticking) {
@@ -56,22 +56,23 @@ class TickerService {
                         percentage = percentage * -1;
                     }
                     const change = Math.round(cell.value * percentage);
-                    if (change === 0)
+                    if (change === 0) {
                         continue;
+                    }
                     cell.value += change;
                     cell.change = change;
                     cells.push({
-                        value: cell.value,
                         change: cell.change,
-                        rowIndex: rowIndex,
-                        columnIndex: cellIndex
+                        columnIndex: cellIndex,
+                        rowIndex,
+                        value: cell.value
                     });
                 }
             }
             const name = 'report/' + report._id;
             this.io.sockets.emit(name, {
                 _id: report._id,
-                cells: cells
+                cells
             });
             const summary = TickerService.getSummary(report);
             report.value = summary.value;
@@ -100,7 +101,7 @@ class TickerService {
         const summary = {
             _id: report._id,
             name: report.name,
-            value: value,
+            value,
             change: 0
         };
         if (change !== 0) {

@@ -13,11 +13,9 @@ class ReportsRepository {
     getReports(callback) {
         this.reportsSchema.find(callback);
     }
-    ;
     getReport(id, callback) {
         this.reportsSchema.findOne({ _id: id }, callback);
     }
-    ;
 }
 exports.ReportsRepository = ReportsRepository;
 //# sourceMappingURL=reports.repository.js.map

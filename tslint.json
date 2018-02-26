@@ -19,14 +19,16 @@
     ],
     "curly": true,
     "eofline": false,
-    "forin": true,
+    "forin": false,
+    "prefer-for-of": false,
+    "object-literal-sort-keys": false,
     "indent": [ true, "spaces" ],
     "interface-name": [true, "never-prefix"],
     "jsdoc-format": true,
     "label-position": true,
     "max-line-length": [ true, 120 ],
     "member-ordering": [
-      true,
+      false,
       "public-before-private",
       "static-before-instance",
       "variables-before-functions"

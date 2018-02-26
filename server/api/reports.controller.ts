@@ -4,7 +4,7 @@ export class ReportsController {
 
   constructor(private repository: ReportsRepository) {}
 
-  getReports = (req, res) => {
+  public getReports = (req, res) => {
 
     console.log('>Server: /api/reports');
 
@@ -17,9 +17,9 @@ export class ReportsController {
         res.json(reports);
       }
     });
-  };
+  }
 
-  getReport = (req, res) => {
+  public getReport = (req, res) => {
 
     const id = req.params.id;
     console.log('>Server: /api/report/' + id);

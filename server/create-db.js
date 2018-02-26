@@ -10,8 +10,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback() {
     console.log('connected');
     for (let i = 1; i <= 30; i++) {
-        let Report = mongoose.model('reports', schema.schema);
-        let report = new Report({
+        const Report = mongoose.model('reports', schema.schema);
+        const report = new Report({
             name: 'Report ' + i,
             value: 0,
             change: 0,
@@ -27,10 +27,10 @@ db.once('open', function callback() {
                     change: utils.getRandom(-100, 100)
                 };
                 row.push(cell);
-                report['value'] += cell.value;
-                report['change'] += cell.change;
+                report.value += cell.value;
+                report.change += cell.change;
             }
-            report['cells'].push(row);
+            report.cells.push(row);
         }
         report.save();
     }

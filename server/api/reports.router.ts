@@ -1,9 +1,9 @@
+import * as express from 'express';
 import {ReportsController} from './reports.controller';
-import * as express from 'express'
 
 export class ReportsRouter {
 
-  routes = express.Router();
+  public routes = express.Router();
 
   constructor(private reportsController: ReportsController) {
     this.configure();

@@ -1,10 +1,10 @@
 import * as mongoose from 'mongoose';
+import {Document, Model} from 'mongoose';
 import {ReportSchema} from '../config/db';
-import {Model, Document} from 'mongoose';
 
 export class ReportsRepository {
 
-    reportsSchema:Model<Document>;
+    public reportsSchema:Model<Document>;
     
     constructor() {
 
@@ -19,13 +19,13 @@ export class ReportsRepository {
         console.log('Schema created.');
         }
 
-    getReports(callback) {
+    public getReports(callback: any) {
         this.reportsSchema.find(callback);
-    };
+    }
 
-    getReport(id, callback) {
+    public getReport(id: string, callback: any) {
         this.reportsSchema.findOne({ _id: id }, callback);
-    };
+    }
 }
 
 

@@ -1,7 +1,7 @@
+import {Server} from 'http';
+import * as socketIO from 'socket.io';
 import {getRandom} from '../common/utils';
 import {ReportsRepository} from './reports.repository';
-import * as socketIO from 'socket.io';
-import {Server} from 'http';
 
 export class TickerService {
 
@@ -22,7 +22,7 @@ export class TickerService {
     this.io.sockets.on('connection', (socket: any) => {
       console.log('User connected');
 
-      socket.on('disconnect', function () {
+      socket.on('disconnect', () => {
         console.log('User disconnected');
       });
 
@@ -49,7 +49,7 @@ export class TickerService {
     }, getRandom(this.lowerTick, this.upperTick));
   }
 
-  update(reports) {
+  public update(reports: any) {
     const reportsUpdateCount = getRandom(0, reports.length - 1);
 
     for (let index = 0; index < reportsUpdateCount; index++) {
@@ -79,16 +79,18 @@ export class TickerService {
 
           const change = Math.round(cell.value * percentage);
 
-          if (change === 0) continue;
+          if (change === 0) {
+            continue;
+          }
 
           cell.value += change;
           cell.change = change;
 
           cells.push({
-            value: cell.value,
             change: cell.change,
-            rowIndex: rowIndex,
-            columnIndex: cellIndex
+            columnIndex: cellIndex,
+            rowIndex,
+            value: cell.value
           });
         }
       }
@@ -96,7 +98,7 @@ export class TickerService {
       const name = 'report/' + report._id;
       this.io.sockets.emit(name, {
         _id: report._id,
-        cells: cells
+        cells
       });
 
       const summary = TickerService.getSummary(report);
@@ -115,7 +117,7 @@ export class TickerService {
     }
   }
 
-  static getSummary(report): any {
+  public static getSummary(report: any): any {
     let value = 0;
 
     for (let i = 0; i < report.cells.length; i++) {
@@ -131,7 +133,7 @@ export class TickerService {
     const summary = {
       _id: report._id,
       name: report.name,
-      value: value,
+      value,
       change: 0
     };
 

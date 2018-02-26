@@ -1,16 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
 const bodyParser = require("body-parser");
-const reports_router_1 = require("./reports.router");
-const reports_repository_1 = require("./reports.repository");
-const ticker_service_1 = require("./ticker.service");
+const express = require("express");
 const reports_controller_1 = require("./reports.controller");
+const reports_repository_1 = require("./reports.repository");
+const reports_router_1 = require("./reports.router");
+const ticker_service_1 = require("./ticker.service");
 class ReportsServer {
     start() {
-        let app = express();
-        let http = require('http');
-        let server = http.Server(app);
+        const app = express();
+        const http = require('http');
+        const server = http.Server(app);
         this.configure(app, server);
         this.listen(server);
     }
@@ -22,19 +22,19 @@ class ReportsServer {
         });
         app.use(bodyParser.json());
         app.use(express.static('public'));
-        let repository = new reports_repository_1.ReportsRepository();
+        const repository = new reports_repository_1.ReportsRepository();
         const controller = new reports_controller_1.ReportsController(repository);
-        let router = new reports_router_1.ReportsRouter(controller);
+        const router = new reports_router_1.ReportsRouter(controller);
         app.use('/api/reports', router.routes);
         app.get('/*', (req, res) => {
             res.sendFile('./public/index.html');
         });
-        let tickerService = new ticker_service_1.TickerService(server, repository);
+        const tickerService = new ticker_service_1.TickerService(server, repository);
         tickerService.listen();
     }
     listen(server) {
-        let port = process.env.PORT || 3200;
-        server.listen(port, function () {
+        const port = process.env.PORT || 3200;
+        server.listen(port, () => {
             console.log('report ticker server listening on port' + port);
         });
     }
