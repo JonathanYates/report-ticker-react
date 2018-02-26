@@ -1,4 +1,4 @@
-# Report Ticker (React 16 version)
+# Report Ticker (React version)
 
 This is a report ticker application using:
  
