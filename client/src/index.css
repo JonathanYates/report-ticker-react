@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  display: block;
+}
+
+.tile-up {
+  animation: tile-flash-up 1s ease-out;
+}
+@keyframes tile-flash-up {
+  0%, to { background-color: #bee6ff }
+  50% { background-color: #ADE8AD }
+  80% { background-color: #bee6ff }
+}
+
+.tile-down {
+  animation: tile-flash-down 1s ease-out;
+}
+@keyframes tile-flash-down {
+  0%, to { background-color: #bee6ff }
+  50% { background-color: #FFC7C7 }
+  80% { background-color: #bee6ff }
+}
+
+.change-arrow-up {
+  color: rgba(0, 115, 0, 0.61);
+  padding: 5px;
+}
+
+.change-arrow-down {
+  color: rgba(190, 0, 0, 0.6);
+  padding: 5px;
+}

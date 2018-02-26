@@ -1,0 +1,24 @@
+table, th, td {
+  border: 1px solid white;
+}
+
+th, tr {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+th {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: black;
+  color: white;
+}
+
+tr {
+  background-color: #bee6ff;
+}
+
+.cell {
+  padding: 5px;
+  width: 120px;
+}
