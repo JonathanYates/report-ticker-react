@@ -45,13 +45,13 @@ Setup
 
 1. npm install
 
-2. 'tsc' to compile Typescript
+2. 'mongod' to start local Mongo database.
 
-3. 'mongod' from command line to start the Mongo database
+3. 'node create-db.js' to create database of reports (once only).
 
-4. 'node create-db.js' to create database of reports
+4. cd server, 'tsc' to compile server Typescript.
 
-5. cd to server, run 'node server.js' to start node api server
+5. run 'node server.js' to start node api server.
 
 6. cd to client, run 'npm start' to launch React client.
 
