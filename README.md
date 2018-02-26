@@ -2,8 +2,8 @@
 
 This is a report ticker application using:
  
-Client: React (v16), Redux, Rxjs, Bootstrap. 
-Server: Node, Express 4, Socket.io, MongoDB, Mongoose
+- Client: React (v16), Redux, Rxjs, Bootstrap. 
+- Server: Node, Express 4, Socket.io, MongoDB, Mongoose
 
 Notes
 -----
