@@ -47,13 +47,13 @@ Setup
 
 2. 'mongod' to start local Mongo database.
 
-3. 'node create-db.js' to create database of reports (once only).
+3. cd to server directory, 'node create-db.js' to create database of reports (once only).
 
-4. cd server, 'tsc' to compile server Typescript.
+4. 'tsc' to compile server Typescript.
 
 5. run 'node server.js' to start node api server.
 
-6. cd to client, run 'npm start' to launch React client.
+6. cd to client directory, run 'npm start' to launch React client.
 
 
 Redux DevTools
