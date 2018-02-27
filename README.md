@@ -56,6 +56,19 @@ Setup
 6. cd to client, run 'npm start' to launch React client.
 
 
+Redux DevTools
+--------------
+
+This application support the Redux DevTools Extension.
+
+https://github.com/zalmoxisus/redux-devtools-extension
+
+This powerful tool allows you to monitor Redux store updates and actions and supports time travel.
+
+
+
+
+
 
 
 
