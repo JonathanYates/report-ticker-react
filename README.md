@@ -47,7 +47,7 @@ Setup
 
 2. 'mongod' to start local Mongo database.
 
-3. cd server directory, 'node create-db.js' to create database of reports (once only).
+3. cd to server directory, 'node create-db.js' to create database of reports (once only).
 
 4. 'tsc' to compile server Typescript.
 
