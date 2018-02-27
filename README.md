@@ -59,7 +59,7 @@ Setup
 Redux DevTools
 --------------
 
-This application support the Redux DevTools Extension.
+Supports Redux DevTools Extension.
 
 https://github.com/zalmoxisus/redux-devtools-extension
 
